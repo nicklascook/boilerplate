@@ -3,7 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { Toaster } from "react-hot-toast";
 
-import { api } from "~/utils/api";
+import { api } from "~/lib/api";
 
 import "~/styles/globals.css";
 import Head from "next/head";
@@ -12,6 +12,7 @@ import { Poppins, Inter } from "next/font/google";
 import Script from "next/script";
 import Nav from "~/components/base/Nav";
 import Footer from "~/components/base/Footer";
+import Feedback from "~/components/base/Feedback";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,6 +59,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           <Component {...pageProps} />
           <Footer />
         </div>
+        <Feedback />
         <Toaster
           position="top-right"
           containerStyle={{

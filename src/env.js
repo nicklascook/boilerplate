@@ -28,7 +28,6 @@ export const env = createEnv({
     SENTRY_AUTH_TOKEN: z.string().min(1),
     GLITCHTIP_DSN: z.string().min(1),
     RESEND_API_KEY: z.string().min(1),
-    UMAMI_WEBSITE_ID: z.string().min(1),
 
     // Stripe
     STRIPE_PK: z.string().min(1),
@@ -62,7 +61,6 @@ export const env = createEnv({
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
 
     // General
-    UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     GLITCHTIP_DSN: process.env.GLITCHTIP_DSN,
