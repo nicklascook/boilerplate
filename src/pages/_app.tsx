@@ -11,6 +11,7 @@ import { Poppins, Inter } from "next/font/google";
 import Script from "next/script";
 import Nav from "~/components/base/Nav";
 import Footer from "~/components/base/Footer";
+import { ToastProvider } from "~/context/ToastContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,11 +53,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
         data-website-id={process.env.UMAMI_WEBSITE_ID}
       />
       <SessionProvider session={session}>
-        <div className={`${inter.variable} ${poppins.variable} font-body`}>
-          <Nav />
-          <Component {...pageProps} />
-          <Footer />
-        </div>
+        <ToastProvider>
+          <div className={`${inter.variable} ${poppins.variable} font-body`}>
+            <Nav />
+            <Component {...pageProps} />
+            <Footer />
+          </div>
+        </ToastProvider>
       </SessionProvider>
     </>
   );
