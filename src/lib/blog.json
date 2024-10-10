@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "getting-started-with-web-development",
+    "title": "Getting Started with Web Development: A Beginner's Guide",
+    "content": "Web development is an exciting and ever-evolving field that offers endless opportunities for creativity and innovation. If you're just starting out, it can seem overwhelming, but with the right approach, anyone can learn to build amazing websites and web applications.\n\nHere are some key steps to begin your web development journey:\n\n1. Learn the basics: Start with HTML, CSS, and JavaScript. These are the fundamental building blocks of the web.\n\n2. Choose a text editor: Pick a code editor that suits your needs. Popular choices include Visual Studio Code, Sublime Text, or Atom.\n\n3. Practice, practice, practice: Build small projects to apply what you've learned. Start with a simple personal website and gradually increase complexity.\n\n4. Explore frameworks: Once you're comfortable with the basics, look into frameworks like React, Vue, or Angular for front-end development, and Express or Django for back-end.\n\n5. Stay updated: Web technologies evolve rapidly. Follow blogs, attend webinars, and participate in coding communities to stay current.\n\nRemember, everyone starts somewhere. Be patient with yourself and enjoy the learning process. Happy coding!",
+    "excerpt": "Discover the essential steps to start your journey in web development. Learn about the fundamental technologies, tools, and practices that will set you on the path to becoming a proficient web developer.",
+    "date": "2023-05-15",
+    "author": "Jane Doe",
+    "coverImage": "/images/web-dev-cover.jpg",
+    "tags": ["Web Development", "Beginner", "HTML", "CSS", "JavaScript"]
+  }
+]
