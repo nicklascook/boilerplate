@@ -14,54 +14,56 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="border-t-2 border-t-gray-100">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between md:flex-row">
-          <div className="flex w-1/3 items-center">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-start justify-between space-y-6 sm:flex-row sm:space-y-0">
+          <div className="flex w-full items-center justify-center sm:justify-start">
             <Link href="/" className="flex flex-shrink-0 items-center gap-1">
               <Image src="/site/logo.png" alt="Logo" width={35} height={35} />
               <div className="ml-2 font-header text-xl font-bold">My Site</div>
             </Link>
           </div>
 
-          <nav className="mt-4 flex w-2/3 justify-end md:mt-0">
-            <div className="flex min-w-[200px] flex-col gap-3">
-              <p className="font-header font-semibold">Pages</p>
-              <Link href="/privacy" className={tw(linkClasses)}>
-                Privacy
-              </Link>
-              <Link href="/blog" className={tw(linkClasses)}>
-                Blog
-              </Link>
-            </div>
-            <div className="flex min-w-[200px] flex-col gap-3">
-              <p className="font-header font-semibold">Other Sites</p>
-              <a
-                href="https://intellisay.xyz"
-                target="_blank"
-                className={tw(linkClasses)}
-              >
-                Intellisay
-              </a>
-              <a
-                href="https://logogeneratorai.xyz"
-                target="_blank"
-                className={tw(linkClasses)}
-              >
-                LogoGeneratorAI
-              </a>
-              <a
-                href="https://craux.studio"
-                target="_blank"
-                className={tw(linkClasses)}
-              >
-                craux.studio
-              </a>
+          <nav className="w-full">
+            <div className="flex flex-wrap justify-center gap-8 sm:justify-end">
+              <div className="flex min-w-[140px] flex-col gap-3">
+                <p className="font-header font-semibold">Pages</p>
+                <Link href="/privacy" className={tw(linkClasses)}>
+                  Privacy
+                </Link>
+                <Link href="/blog" className={tw(linkClasses)}>
+                  Blog
+                </Link>
+              </div>
+              <div className="flex min-w-[140px] flex-col gap-3">
+                <p className="font-header font-semibold">Other Sites</p>
+                <a
+                  href="https://intellisay.xyz"
+                  target="_blank"
+                  className={tw(linkClasses)}
+                >
+                  Intellisay
+                </a>
+                <a
+                  href="https://logogeneratorai.xyz"
+                  target="_blank"
+                  className={tw(linkClasses)}
+                >
+                  LogoGeneratorAI
+                </a>
+                <a
+                  href="https://craux.studio"
+                  target="_blank"
+                  className={tw(linkClasses)}
+                >
+                  craux.studio
+                </a>
+              </div>
             </div>
           </nav>
         </div>
 
-        <div className="mt-8 flex justify-between border-t border-gray-100 pt-8 text-center">
-          <div className="flex items-center gap-5">
+        <div className="mt-8 flex flex-col items-center justify-between border-t border-gray-100 pt-8 text-center sm:flex-row">
+          <div className="mb-4 flex items-center gap-5 sm:mb-0">
             <a href="https://x.com/nickcraux" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +99,7 @@ export const Footer: React.FC = () => {
                   <path
                     d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
                       c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
-                      C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
+                      C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.60268.239-0.847-7.239-4.568V168.607
                       c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"
                   />
                 </g>
