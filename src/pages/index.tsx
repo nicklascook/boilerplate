@@ -1,5 +1,6 @@
 import Button from "~/components/base/Button";
 import Label from "~/components/base/Label";
+import Loader from "~/components/base/Loader";
 import Textarea from "~/components/base/Textarea";
 import toast from "~/lib/toast";
 
@@ -37,6 +38,7 @@ export default function Home() {
           className="mt-4"
         />
       </div>
+      <Loader label="Loading..." size="md" className="my-4" />
     </main>
   );
 }
