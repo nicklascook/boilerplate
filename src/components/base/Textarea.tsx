@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { tw } from "~/lib/utils";
 
 interface TextareaProps {
-  label?: string;
   error?: string;
   value?: string;
   onChange?: (value: string) => void;
@@ -13,7 +13,6 @@ interface TextareaProps {
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
-  label,
   error,
   value = "",
   onChange,
@@ -37,13 +36,17 @@ export const Textarea: React.FC<TextareaProps> = ({
     }
   };
 
+  const textareaClasses = tw(
+    "min-h-[100px] w-full resize-y rounded-md border bg-white p-3 text-base text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2",
+    error
+      ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+      : "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
+    disabled ? "cursor-not-allowed opacity-50" : "",
+    className,
+  );
+
   return (
-    <div className="mb-4 flex flex-col">
-      {label && (
-        <label className="mb-2 text-sm font-medium text-gray-700">
-          {label}
-        </label>
-      )}
+    <div className="relative mb-4">
       <textarea
         value={value}
         onChange={handleChange}
@@ -51,13 +54,20 @@ export const Textarea: React.FC<TextareaProps> = ({
         maxLength={maxLength}
         disabled={disabled}
         required={required}
-        className={`min-h-[100px] resize-y rounded-md border bg-white p-3 text-base text-gray-900 transition-colors duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          error ? "border-red-500" : "border-gray-300"
-        } ${disabled ? "cursor-not-allowed opacity-50" : ""} ${className}`}
+        className={textareaClasses}
+        aria-invalid={error ? "true" : "false"}
+        aria-describedby={error ? "textarea-error" : undefined}
       />
-      {error && <span className="mt-1 text-xs text-red-600">{error}</span>}
+      {error && (
+        <p
+          id="textarea-error"
+          className="absolute -bottom-5 left-0 text-xs text-red-600"
+        >
+          {error}
+        </p>
+      )}
       {maxLength && (
-        <span className="mt-1 self-end text-xs text-gray-500">
+        <span className="absolute bottom-2 right-2 text-xs text-gray-500">
           {charCount}/{maxLength}
         </span>
       )}

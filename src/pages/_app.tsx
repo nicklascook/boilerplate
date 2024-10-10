@@ -63,7 +63,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <Toaster
           position="top-right"
           containerStyle={{
-            top: "5rem",
+            top: "2rem",
             right: "2rem",
           }}
         />

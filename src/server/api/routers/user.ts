@@ -8,19 +8,19 @@ export const userRouter = createTRPCRouter({
   sendFeedback: publicProcedure
     .input(
       z.object({
-        sentiment: z.string(),
+        email: z.string().email(),
         message: z.string(),
       }),
     )
     .mutation(async ({ input, ctx }) => {
       const { error } = await resend.emails.send({
-        from: `${site.name} Feedback <onboarding@resend.dev>`,
+        from: `TODO Feedback <onboarding@resend.dev>`,
         to: ["nicklascook@hotmail.com"],
-        subject: `Feedback from ${site.name}`,
+        subject: `Feedback from TODO`,
         html: `
-          Sentiment: <strong>${input.sentiment}</strong><br/>
-          Message: <p>${input.message}</p><br/>
-          From user: <p>${ctx.session?.user.id ?? "Unknown"}</p>
+        Message: <p>${input.message}</p><br/>
+        Email: <strong>${input.email}</strong><br/>
+        From user: <p>${ctx.session?.user.id ?? "Unknown"}</p>
         `,
       });
 
