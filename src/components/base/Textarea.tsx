@@ -1,68 +1,42 @@
-import React, { useState, useEffect } from "react";
-import { tw } from "~/lib/utils";
+import React from "react";
+import { Textarea as ShadcnTextarea } from "~/components/ui/textarea";
 
-interface TextareaProps {
-  error?: string;
+interface CustomTextareaProps {
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
   maxLength?: number;
   disabled?: boolean;
   required?: boolean;
+  error?: string;
   className?: string;
 }
 
-export const Textarea: React.FC<TextareaProps> = ({
-  error,
-  value = "",
+export const CustomTextarea: React.FC<CustomTextareaProps> = ({
+  value,
   onChange,
   placeholder,
   maxLength,
   disabled = false,
   required = false,
+  error,
   className = "",
 }) => {
-  const [charCount, setCharCount] = useState(0);
-
-  useEffect(() => {
-    setCharCount(value.length);
-  }, [value]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newValue = e.target.value;
-    setCharCount(newValue.length);
-    if (onChange) {
-      onChange(newValue);
-    }
-  };
-
-  const textareaClasses = tw(
-    "min-h-[100px] w-full resize-y rounded-md border bg-white p-3 text-base text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2",
-    error
-      ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-      : "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
-    disabled ? "cursor-not-allowed opacity-50" : "",
-    className,
-  );
+  const charCount = value?.length ?? 0;
 
   return (
     <div className="relative mb-4">
-      <textarea
+      <ShadcnTextarea
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
         placeholder={placeholder}
         maxLength={maxLength}
         disabled={disabled}
         required={required}
-        className={textareaClasses}
-        aria-invalid={error ? "true" : "false"}
-        aria-describedby={error ? "textarea-error" : undefined}
+        className={`${className} ${error ? "border-red-500" : ""}`}
       />
       {error && (
-        <p
-          id="textarea-error"
-          className="absolute -bottom-5 left-0 text-xs text-red-600"
-        >
+        <p className="absolute -bottom-5 left-0 text-xs text-red-600">
           {error}
         </p>
       )}
@@ -75,4 +49,4 @@ export const Textarea: React.FC<TextareaProps> = ({
   );
 };
 
-export default Textarea;
+export default CustomTextarea;

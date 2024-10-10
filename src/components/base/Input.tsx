@@ -1,7 +1,7 @@
-import React, { forwardRef } from "react";
-import { tw } from "~/lib/utils";
+import React from "react";
+import { Input as ShadcnInput } from "~/components/ui/input";
 
-type InputProps = {
+interface CustomInputProps {
   type?: "text" | "password" | "email" | "number";
   placeholder?: string;
   value?: string;
@@ -17,9 +17,12 @@ type InputProps = {
   minLength?: number;
   error?: string;
   className?: string;
-};
+}
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const CustomInput: React.FC<CustomInputProps> = React.forwardRef<
+  HTMLInputElement,
+  CustomInputProps
+>(
   (
     {
       type = "text",
@@ -40,18 +43,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref,
   ) => {
-    const inputClasses = tw(
-      "w-full px-3 py-2 text-gray-700 border rounded-md transition-colors duration-200 focus:outline-none focus:ring-2",
-      error
-        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-        : "border-gray-300 focus:border-blue-500 focus:ring-blue-500",
-      disabled ? "bg-gray-100 cursor-not-allowed opacity-50" : "",
-      className,
-    );
+    const inputClasses = `${className} ${error ? "border-red-500" : ""}`;
 
     return (
       <div className="relative mb-4">
-        <input
+        <ShadcnInput
           ref={ref}
           type={type}
           className={inputClasses}
@@ -67,14 +63,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           autoComplete={autoComplete}
           maxLength={maxLength}
           minLength={minLength}
-          aria-invalid={error ? "true" : "false"}
-          aria-describedby={error ? `${name}-error` : undefined}
         />
         {error && (
-          <p
-            id={`${name}-error`}
-            className="absolute -bottom-5 left-0 text-xs text-red-600"
-          >
+          <p className="absolute -bottom-5 left-0 text-xs text-red-600">
             {error}
           </p>
         )}
@@ -83,6 +74,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
-Input.displayName = "Input";
+CustomInput.displayName = "CustomInput";
 
-export default Input;
+export default CustomInput;

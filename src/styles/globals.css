@@ -8,3 +8,9 @@
   width: 100%;
   padding: 2rem;
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
