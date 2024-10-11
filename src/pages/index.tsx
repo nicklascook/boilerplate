@@ -12,12 +12,16 @@ import Tooltip from "~/components/base/Tooltip";
 import Switch from "~/components/base/Switch";
 import Radio from "~/components/base/Radio";
 import Popover from "~/components/base/Popover";
+import DatePicker from "~/components/base/DatePicker";
+import { type DateRange } from "react-day-picker";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSwitchEnabled, setIsSwitchEnabled] = useState(false);
   const [isCheckboxEnabled, setIsCheckboxEnabled] = useState(false);
   const [selectedValue, setSelectedValue] = useState("option1");
+  const [selectedDate, setSelectedDate] = useState<Date>();
+  const [dateRange, setDateRange] = useState<DateRange>();
 
   return (
     <main className="container min-h-screen">
@@ -124,6 +128,14 @@ export default function Home() {
             </div>
           }
         />
+      </div>
+      <div className="py-3">
+        <Label>Date Picker:</Label>
+        <DatePicker date={selectedDate} setDate={setSelectedDate} />
+      </div>
+      <div className="py-3">
+        <Label>Date Range:</Label>
+        <DatePicker dateRange={dateRange} setDateRange={setDateRange} />
       </div>
     </main>
   );
