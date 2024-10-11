@@ -49,11 +49,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <meta property="twitter:description" content={`TODO`} />
         <meta property="twitter:image" content={`TODO/og-image.png`} />
       </Head>
-      <Script
-        defer
-        src="https://analytics.intellisay.xyz/script.js"
-        data-website-id={process.env.UMAMI_WEBSITE_ID}
-      />
+
+      {process.env.NODE_ENV === "production" && (
+        <Script
+          defer
+          src="https://analytics.intellisay.xyz/script.js"
+          data-website-id={process.env.UMAMI_WEBSITE_ID}
+        />
+      )}
+
       <SessionProvider session={session}>
         <TooltipProvider>
           <div className={`${inter.variable} ${poppins.variable} font-body`}>
