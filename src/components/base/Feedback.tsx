@@ -58,7 +58,7 @@ const Feedback: React.FC = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(false)}
-            className="rounded-base flex items-center justify-center px-2 py-2 hover:bg-gray-100"
+            className="flex items-center justify-center rounded-base px-2 py-2 hover:bg-gray-100"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Feedback: React.FC = () => {
             <Textarea
               placeholder="Enter your feedback / help request"
               value={message}
-              onChange={(val) => setMessage(val)}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </div>
           <div className="flex justify-end">

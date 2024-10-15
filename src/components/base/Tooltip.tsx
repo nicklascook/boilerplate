@@ -2,7 +2,6 @@ import React from "react";
 import {
   Tooltip as ShadcnTooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 
