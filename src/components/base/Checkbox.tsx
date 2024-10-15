@@ -29,7 +29,7 @@ export const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
     <div className="flex items-center space-x-2">
       <label
         className={tw(
-          "flex items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+          "flex select-none items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
           error && "text-red-500",
         )}
       >

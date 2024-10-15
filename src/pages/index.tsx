@@ -35,11 +35,14 @@ export default function Home() {
       </p>
       <div className="py-2">
         <Label>Text Area:</Label>
-        <Textarea placeholder="Type something..." />
+        <Textarea
+          placeholder="Type something..."
+          hint="Enter your message here"
+        />
       </div>
       <div className="py-2">
         <Label>Text Input:</Label>
-        <Input placeholder="Type something..." />
+        <Input placeholder="Type something..." hint="This is a hint" />
       </div>
       <div className="py-2">
         <Label>Checkbox:</Label>

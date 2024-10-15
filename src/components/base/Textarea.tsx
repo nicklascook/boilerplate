@@ -1,7 +1,7 @@
 import React from "react";
 import { Textarea as ShadcnTextarea } from "~/components/ui/textarea";
 
-interface CustomTextareaProps {
+interface TextareaProps {
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
@@ -10,9 +10,10 @@ interface CustomTextareaProps {
   required?: boolean;
   error?: string;
   className?: string;
+  hint?: string;
 }
 
-export const CustomTextarea: React.FC<CustomTextareaProps> = ({
+export const Textarea: React.FC<TextareaProps> = ({
   value,
   onChange,
   placeholder,
@@ -21,6 +22,7 @@ export const CustomTextarea: React.FC<CustomTextareaProps> = ({
   required = false,
   error,
   className = "",
+  hint,
 }) => {
   const charCount = value?.length ?? 0;
 
@@ -35,6 +37,7 @@ export const CustomTextarea: React.FC<CustomTextareaProps> = ({
         required={required}
         className={`${className} ${error ? "border-red-500" : ""}`}
       />
+      {hint && <p className="mt-1 select-none text-xs text-gray-500">{hint}</p>}
       {error && (
         <p className="absolute -bottom-5 left-0 text-xs text-red-600">
           {error}
@@ -49,4 +52,4 @@ export const CustomTextarea: React.FC<CustomTextareaProps> = ({
   );
 };
 
-export default CustomTextarea;
+export default Textarea;

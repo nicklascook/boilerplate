@@ -17,6 +17,7 @@ interface CustomInputProps {
   minLength?: number;
   error?: string;
   className?: string;
+  hint?: string;
 }
 
 export const CustomInput: React.FC<CustomInputProps> = React.forwardRef<
@@ -40,6 +41,7 @@ export const CustomInput: React.FC<CustomInputProps> = React.forwardRef<
       minLength,
       error,
       className = "",
+      hint,
     },
     ref,
   ) => {
@@ -64,6 +66,9 @@ export const CustomInput: React.FC<CustomInputProps> = React.forwardRef<
           maxLength={maxLength}
           minLength={minLength}
         />
+        {hint && (
+          <p className="mt-1 select-none text-xs text-gray-500">{hint}</p>
+        )}
         {error && (
           <p className="absolute -bottom-5 left-0 text-xs text-red-600">
             {error}
