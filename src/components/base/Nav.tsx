@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import LoginButton from "./LoginButton";
 
 export const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,9 +31,7 @@ export const Nav: React.FC = () => {
 
           {/* Login button */}
           <div className="hidden items-center md:flex">
-            <button className="ml-4 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-              Login
-            </button>
+            <LoginButton />
           </div>
 
           {/* Mobile menu button */}
@@ -100,9 +99,7 @@ export const Nav: React.FC = () => {
           >
             Docs
           </Link>
-          <button className="block w-full rounded-md bg-indigo-600 px-3 py-2 text-left text-base font-medium text-white hover:bg-indigo-700">
-            Login
-          </button>
+          <LoginButton />
         </div>
       </div>
     </nav>
