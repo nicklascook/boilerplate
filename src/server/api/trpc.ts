@@ -8,13 +8,17 @@
  */
 
 import { initTRPC, TRPCError } from "@trpc/server";
-import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import {
+  type NextApiRequest,
+  type CreateNextContextOptions,
+} from "@trpc/server/adapters/next";
 import { type Session } from "next-auth";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
 import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
+import { stripe } from "../stripe/stripe";
 
 /**
  * 1. CONTEXT
@@ -26,6 +30,7 @@ import { db } from "~/server/db";
 
 interface CreateContextOptions {
   session: Session | null;
+  req: NextApiRequest;
 }
 
 /**
@@ -40,8 +45,10 @@ interface CreateContextOptions {
  */
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
+    req: opts.req,
     session: opts.session,
     db,
+    stripe,
   };
 };
 
@@ -58,6 +65,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const session = await getServerAuthSession({ req, res });
 
   return createInnerTRPCContext({
+    req,
     session,
   });
 };

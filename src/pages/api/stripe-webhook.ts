@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import type Stripe from "stripe";
 import { buffer } from "micro";
-import { stripe } from "../../server/lib/stripe";
+import { stripe } from "../../server/stripe/stripe";
 
 export const config = {
   api: {
