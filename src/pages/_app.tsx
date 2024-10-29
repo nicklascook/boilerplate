@@ -54,7 +54,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <Script
           defer
           src="https://analytics.intellisay.xyz/script.js"
-          data-website-id={process.env.UMAMI_WEBSITE_ID}
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
         />
       )}
 
